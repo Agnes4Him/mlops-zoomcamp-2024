@@ -1,2 +1,3 @@
 # mlops-zoomcamp-2024
 For MLOps course...
+This repo is used for homeworks and perform other tasks given at the MLOps zoomcamp caourse.
