@@ -72,7 +72,12 @@ def run_register_model(data_path: str, top_n: int):
 
     # Select the model with the lowest test RMSE
     experiment = client.get_experiment_by_name(EXPERIMENT_NAME)
-    best_run = client.search_runs(experiment.experiment_id)[0]
+    best_run = client.search_runs(
+        experiment_ids=experiment.experiment_id,
+        run_view_type=ViewType.ACTIVE_ONLY,
+        max_results=5,
+        order_by=["metrics.test_rmse ASC", "metrics.val_rmse ASC"]
+    )[0]
 
     # Register the best model
     run_id = best_run.info.run_id
