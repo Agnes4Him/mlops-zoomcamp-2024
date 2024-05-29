@@ -63,10 +63,11 @@ def run_register_model(data_path: str, top_n: int):
     runs = client.search_runs(
         experiment_ids=experiment.experiment_id,
         run_view_type=ViewType.ACTIVE_ONLY,
-        max_results=5,
+        max_results=top_n,
         order_by=["metrics.rmse ASC"]
     )
     for run in runs:
+        print(run)
         train_and_log_model(data_path=data_path, params=run.data.params)
 
     # Select the model with the lowest test RMSE
@@ -74,7 +75,7 @@ def run_register_model(data_path: str, top_n: int):
     best_run = client.search_runs(experiment.experiment_id)[0]
 
     # Register the best model
-    run_id = "b8904012c84343b5bf8ee72aa8f0f402"
+    run_id = best_run.info.run_id
     model_uri = f"runs:/{run_id}/model"
     mlflow.register_model(model_uri=model_uri, name="green-nyc-taxi-regressor")
 
