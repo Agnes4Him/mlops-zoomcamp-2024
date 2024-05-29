@@ -8,8 +8,8 @@ from mlflow.tracking import MlflowClient
 from sklearn.ensemble import RandomForestRegressor
 from sklearn.metrics import mean_squared_error
 
-HPO_EXPERIMENT_NAME = "random-forest-hyperopt"
-EXPERIMENT_NAME = "random-forest-best-models"
+HPO_EXPERIMENT_NAME = "random-forest-hyperopt2"
+EXPERIMENT_NAME = "random-forest-best-models2"
 RF_PARAMS = ['max_depth', 'n_estimators', 'min_samples_split', 'min_samples_leaf', 'random_state']
 
 mlflow.set_tracking_uri("http://127.0.0.1:5000")
