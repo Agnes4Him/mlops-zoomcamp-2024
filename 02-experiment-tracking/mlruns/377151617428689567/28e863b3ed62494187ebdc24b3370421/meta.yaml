@@ -1,0 +1,15 @@
+artifact_uri: file:///workspaces/mlops-zoomcamp-2024/02-experiment-tracking/mlruns/377151617428689567/28e863b3ed62494187ebdc24b3370421/artifacts
+end_time: 1716970985119
+entry_point_name: ''
+experiment_id: '377151617428689567'
+lifecycle_stage: active
+run_id: 28e863b3ed62494187ebdc24b3370421
+run_name: lyrical-ox-944
+run_uuid: 28e863b3ed62494187ebdc24b3370421
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1716970969125
+status: 3
+tags: []
+user_id: codespace

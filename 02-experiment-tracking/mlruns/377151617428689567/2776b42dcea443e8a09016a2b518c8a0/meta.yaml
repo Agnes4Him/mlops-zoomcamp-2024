@@ -1,0 +1,15 @@
+artifact_uri: file:///workspaces/mlops-zoomcamp-2024/02-experiment-tracking/mlruns/377151617428689567/2776b42dcea443e8a09016a2b518c8a0/artifacts
+end_time: 1716971742420
+entry_point_name: ''
+experiment_id: '377151617428689567'
+lifecycle_stage: active
+run_id: 2776b42dcea443e8a09016a2b518c8a0
+run_name: lyrical-crow-549
+run_uuid: 2776b42dcea443e8a09016a2b518c8a0
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1716971726117
+status: 3
+tags: []
+user_id: codespace
