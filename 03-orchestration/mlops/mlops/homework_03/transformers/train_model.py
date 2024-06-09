@@ -19,12 +19,10 @@ def train(data):
 
     lr = LinearRegression()
     lr.fit(X_train, y_train)
-    y_pred = lr.predict(X_train)
-    mean_squared_error(y_train, y_pred, squared=False)
 
-    result = dict()
-    result["lr"] = lr
-    result["dv"] = dv
+    with open('mlops/homework_03/models/dv.b', 'wb') as f_out:
+        pickle.dump(dv, f_out)
 
-    return result
-    
+    print(lr.intercept_)
+
+    return lr, dv
