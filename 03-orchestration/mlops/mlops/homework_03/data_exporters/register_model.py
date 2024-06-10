@@ -2,7 +2,7 @@ import mlflow
 
 @data_exporter
 def register(data):
-    mlflow.set_tracking_uri("sqlite:////home/mlflow/mlflow.db")
+    mlflow.set_tracking_uri("sqlite:///home/mlflow/mlflow.db")
     mlflow.set_experiment("nyc-taxi-march-2023-experiment")
     with mlflow.start_run():
         mlflow.set_tag("developer", "agnes")
