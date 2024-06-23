@@ -17,8 +17,9 @@ numpy = "*"
 scikit-learn = "*"
 jupyter = "*"
 matplotlib = "*"
+ipykernel = "*"
 
 [dev-packages]
 
 [requires]
-python_version = "3.10"
+python_version = "3.12"
