@@ -18,7 +18,7 @@
     "editable": true,
     "fiscalYearStartMonth": 0,
     "graphTooltip": 0,
-    "id": 1,
+    "id": 2,
     "links": [],
     "panels": [
       {
@@ -108,7 +108,7 @@
             },
             "editorMode": "builder",
             "format": "table",
-            "rawSql": "SELECT \"timestamp\", max_quantile_value FROM dummy_metrics LIMIT 50 ",
+            "rawSql": "SELECT \"timestamp\", quantile_value FROM dummy_metrics LIMIT 50 ",
             "refId": "A",
             "sql": {
               "columns": [
@@ -124,7 +124,7 @@
                 {
                   "parameters": [
                     {
-                      "name": "max_quantile_value",
+                      "name": "quantile_value",
                       "type": "functionParameter"
                     }
                   ],
@@ -538,8 +538,8 @@
     "timeRangeUpdatedDuringEditOrView": false,
     "timepicker": {},
     "timezone": "browser",
-    "title": "nyc-dataset-prediction",
-    "uid": "cdpqr77mwcv0ge",
+    "title": "nyc-trip-data-dashboard",
+    "uid": "cdpresm8dwhz4f",
     "version": 1,
     "weekStart": ""
   }
