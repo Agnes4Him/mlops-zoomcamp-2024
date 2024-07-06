@@ -9,9 +9,6 @@ services:
     environment:
       # LocalStack configuration: https://docs.localstack.cloud/references/configuration/
       - DEBUG=${DEBUG:-0}
-      - AWS_REGION=eu-west-2
-      - AWS_ACCESS_KEY_ID=xyz
-      - AWS_SECRET_ACCESS_KEY=aaa
     volumes:
       - "${LOCALSTACK_VOLUME_DIR:-./volume}:/var/lib/localstack"
       - "/var/run/docker.sock:/var/run/docker.sock"
