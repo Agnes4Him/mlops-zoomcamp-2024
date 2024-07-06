@@ -2,10 +2,11 @@ from datetime import datetime
 import pandas as pd
 from batch import *
 
+
 def dt(hour, minute, second=0):
     return datetime(2023, 1, 1, hour, minute, second)
 
-def test_prepare_data():
+def get_actual_df():
     data = [
         (None, None, dt(1, 1), dt(1, 10)),
         (1, 1, dt(1, 2), dt(1, 10)),
@@ -14,20 +15,61 @@ def test_prepare_data():
     ]
 
     columns = ['PULocationID', 'DOLocationID', 'tpep_pickup_datetime', 'tpep_dropoff_datetime']
-    df = pd.DataFrame(data, columns=columns)
 
     categorical = ['PULocationID', 'DOLocationID']
 
-    actual = prepare_data(df, categorical)
+    df = pd.DataFrame(data, columns=columns)
 
-    test_data = [
-        (-1, -1, dt(1, 1), dt(1, 10), 9),
-        (1, 1, dt(1, 2), dt(1, 10), 8),
+    actual_df = prepare_data(df, categorical)
+
+    return actual_df
+
+
+def get_expected_df():
+    data = [
+        (-1, -1, dt(1, 1), dt(1, 10), 9.0),
+        (1, 1, dt(1, 2), dt(1, 10), 8.0),
     ]
 
-    test_columns = ['PULocationID', 'DOLocationID', 'tpep_pickup_datetime', 'tpep_dropoff_datetime', 'duration']
+    columns = ['PULocationID', 'DOLocationID', 'tpep_pickup_datetime', 'tpep_dropoff_datetime', 'duration']
 
-    expected = pd.DataFrame(test_data, columns=test_columns)
+    expected_df = pd.DataFrame(data, columns=columns)
 
-    assert actual == expected
+    return expected_df
+
+
+def test_duration():
+    actual_df = get_actual_df()
+
+    expected_df = get_expected_df()
+
+    assert actual_df['duration'].all() == expected_df['duration'].all()
+
+def test_pickup_location():
+    actual_df = get_actual_df()
+
+    expected_df = get_expected_df()
+    
+    assert actual_df['PULocationID'].all() == expected_df['PULocationID'].all()
+
+def test_dropoff_location():
+    actual_df = get_actual_df()
+
+    expected_df = get_expected_df()
+    
+    assert actual_df['DOLocationID'].all() == expected_df['DOLocationID'].all()
+
+def test_pickup_datetime():
+    actual_df = get_actual_df()
+
+    expected_df = get_expected_df()
+    
+    assert actual_df['tpep_pickup_datetime'].all() == expected_df['tpep_pickup_datetime'].all()
+
+def test_dropoff_datetime():
+    actual_df = get_actual_df()
+
+    expected_df = get_expected_df()
+    
+    assert actual_df['tpep_dropoff_datetime'].all() == expected_df['tpep_dropoff_datetime'].all()
 

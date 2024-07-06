@@ -11,7 +11,9 @@ def prepare_data(df, categorical):
     df['duration'] = df.duration.dt.total_seconds() / 60
 
     df = df[(df.duration >= 1) & (df.duration <= 60)].copy()
+    #df = df[(df['duration'] >= 1) & (df['duration'] <= 60)]
 
+    #df[categorical] = df[categorical].fillna(-1).astype('int').astype('str')
     df[categorical] = df[categorical].fillna(-1).astype('int').astype('str')
 
     return df
